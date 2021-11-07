@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>DocChase</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
+<body>
+    <%=render 'layouts/header'%>
+        <div class="container mt-5">
+            <%=render 'layouts/alerts'%>
+            <%= yield %>
+        </div>
   </body>
 </html>
