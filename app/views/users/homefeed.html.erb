@@ -1,0 +1,50 @@
+<% provide(:title, "Homefeed")%>
+<div class="row">
+	<div class="col-4">
+		<div class="mt-4 mr-auto card">
+			<div class="card-header text-center">
+				Account Information
+			</div>
+			<div class="card-body">
+				<div class="text-center">
+					<%#= profile_image(current_user, "profile-big")%>
+				</div>
+				<div class="mx-auto text-center">
+					<h5 class="card-title"><%= current_user.firstname%> <%= current_user.lastname%></h5>
+					<p class="card-text"> <%= current_user.email%></p>
+
+					<div class="row">
+						<div class="col-6 ">
+							<%#= link_to "#{current_user.following.count} followings", following_user_path(current_user), class:"text-decoration-none"%>
+						</div>
+						
+						<div class="col-6">
+							<%#= link_to "#{current_user.followers.count} followers",  followers_user_path(current_user), class:"text-decoration-none"%>
+						</div>
+
+						<div class="py-4 mx-auto">
+							<%if current_user.is_admin?%>
+								<%#= link_to "Admin Dashboard", admin_home_path,  class:"btn btn-outline-primary mb-2" %>
+							<%end%>
+							<hr/>
+							<%#= link_to "#{current_user.answers.count}", words_path,class:"text-decoration-none" %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="mt-4 col-8">
+	<div class="card">
+		<h5 class="text-center card-header">Dashboard</h5>
+		<div class="card-body">
+			<%#= render "shared/activity_feeds" %>
+		</div>
+	</div>
+	
+	<div class="mt-4 mb-5 pagination justify-content-center">
+		<%#= will_paginate @users, class:"text-info text-center"%>
+	</div>
+</div>
+
