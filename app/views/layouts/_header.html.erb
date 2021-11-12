@@ -19,7 +19,7 @@
                     <a class="nav-link" href="#">Results</a>
                 </li>
 
-            <%if current_user && current_user.is_admin %>
+                <%if current_user && current_user.is_admin %>
                     <li class="nav-item"><%=link_to "Registration", new_user_path, class:"nav-link"%></li>
                 <% end %>
 

@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 4).order(created_at: :desc)
   end
 
+  def new
+    
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -19,7 +23,6 @@ class UsersController < ApplicationController
   
 
   private
-
   # This should probably be abstracted to ApplicationController
   # as shown by diego.greyrobot
   def authorize_admin

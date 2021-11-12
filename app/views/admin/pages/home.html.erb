@@ -1,0 +1,86 @@
+<% provide(:title, "Administration")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
+
+<div class="row">
+	<div class="col-3">
+		<div class="card">
+			<div class="card-header">Dashboard</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><%= link_to "Users", admin_users_path, class:"text-decoration-none"%></li>
+				<li class="list-group-item"><%#= link_to "Categories", admin_categories_path, class:"text-decoration-none"%> </li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-9">
+		<div class="mb-4 card">
+			<div class="card-header">Overview</div>
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-6">
+							<div class="card text-secondary bg-light">
+								<div class="text-center card-body">
+									<h1 class="mb-1 card-title">
+										<i class="fas fa-user-friends fa-lg dashboard-icon"></i>
+										<%= @users.count%>
+									</h1>
+									<h3>Users</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="card text-secondary bg-light">
+								<div class="text-center card-body">
+									<h1 class="mb-1 card-title">
+										<i class="fas fa-journal-whills fa-lg dashboard-icon"></i>
+										<%#= @categories.count%>
+									</h1>
+									<h3>Categories</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mb-4 card">
+			<div class="card-header">Latest Users</div>
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<table class="table text-center">
+							<thead>
+								<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+                                <th>Status</th>
+								</tr>
+							</thead>
+							<tbody class="mx-auto text-center">
+								<% @users.each do |user| %>
+									<tr>
+										<td><%= user.firstname%></td>
+                                        <td><%= user.lastname%></td>
+										<td><%= user.email%></td>
+										<%if user.is_admin?%>
+                                            <td class="align-middle">Admin</td>
+                                        <%else%>
+                                            <td class="align-middle">Physician/Normal User</td>
+                                        <%end%>
+									</tr>
+								<%end%>
+							</tbody>
+						</table>
+						<div class="mx-auto mt-4"><%= will_paginate @users%></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
