@@ -10,35 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_13_143034) do
+ActiveRecord::Schema.define(version: 2021_11_13_214231) do
 
-  create_table "patients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "pid"
-    t.string "externalPid"
-    t.bigint "user_id"
-    t.string "relatedUuse"
-    t.string "paymentType"
-    t.string "documentType"
-    t.datetime "dateOfBirth"
+  create_table "admin_patients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "age"
     t.string "gender"
-    t.string "race"
-    t.string "ethnicity"
-    t.string "street"
-    t.string "street2"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "country"
-    t.integer "phone"
-    t.integer "mobile"
-    t.string "county"
+    t.string "firstname"
+    t.string "lastname"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age"
+    t.string "gender"
     t.string "firstname"
     t.string "lastname"
-    t.index ["user_id"], name: "index_patients_on_user_id"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,5 +47,4 @@ ActiveRecord::Schema.define(version: 2021_11_13_143034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "patients", "users"
 end

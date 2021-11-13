@@ -1,47 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pid: MyString
-  externalPid: MyString
-  user: one
-  relatedUuse: MyString
-  paymentType: MyString
-  documentType: MyString
-  dateOfBirth: 2021-11-13 13:58:56
   age: 1
   gender: MyString
-  race: MyString
-  ethnicity: MyString
-  street: MyString
-  street2: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-  country: MyString
-  phone: 1
-  mobile: 1
-  county: MyString
+  firstname: MyString
+  lastname: MyString
   email: MyString
 
 two:
-  pid: MyString
-  externalPid: MyString
-  user: two
-  relatedUuse: MyString
-  paymentType: MyString
-  documentType: MyString
-  dateOfBirth: 2021-11-13 13:58:56
   age: 1
   gender: MyString
-  race: MyString
-  ethnicity: MyString
-  street: MyString
-  street2: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-  country: MyString
-  phone: 1
-  mobile: 1
-  county: MyString
+  firstname: MyString
+  lastname: MyString
   email: MyString

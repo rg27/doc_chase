@@ -1,108 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pid:</strong>
-  <%= @admin_patient.pid %>
-</p>
-
-<p>
-  <strong>Externalpid:</strong>
-  <%= @admin_patient.externalPid %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @admin_patient.user %>
-</p>
-
-<p>
-  <strong>Relateduuse:</strong>
-  <%= @admin_patient.relatedUuse %>
-</p>
-
-<p>
-  <strong>Paymenttype:</strong>
-  <%= @admin_patient.paymentType %>
-</p>
-
-<p>
-  <strong>Documenttype:</strong>
-  <%= @admin_patient.documentType %>
-</p>
-
-<p>
-  <strong>Dateofbirth:</strong>
-  <%= @admin_patient.dateOfBirth %>
-</p>
-
-<p>
   <strong>Age:</strong>
-  <%= @admin_patient.age %>
+  <%= @patient.age %>
 </p>
 
 <p>
   <strong>Gender:</strong>
-  <%= @admin_patient.gender %>
+  <%= @patients.gender %>
 </p>
 
 <p>
-  <strong>Race:</strong>
-  <%= @admin_patient.race %>
+  <strong>Firstname:</strong>
+  <%= @patients.firstname %>
 </p>
 
 <p>
-  <strong>Ethnicity:</strong>
-  <%= @admin_patient.ethnicity %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @admin_patient.street %>
-</p>
-
-<p>
-  <strong>Street2:</strong>
-  <%= @admin_patient.street2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @admin_patient.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @admin_patient.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @admin_patient.zip %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @admin_patient.country %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @admin_patient.phone %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @admin_patient.mobile %>
-</p>
-
-<p>
-  <strong>County:</strong>
-  <%= @admin_patient.county %>
+  <strong>Lastname:</strong>
+  <%= @patients.lastname %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @admin_patient.email %>
+  <%= @patients.email %>
 </p>
 
 <%= link_to 'Edit', edit_admin_patient_path(@admin_patient) %> |
