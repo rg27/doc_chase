@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :patients
+  end
   devise_for :users
   resources :users, except: :create
   post 'create_user' => 'users#create', as: :create_user      

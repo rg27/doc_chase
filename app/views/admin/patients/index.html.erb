@@ -1,0 +1,59 @@
+<% provide(:title,"Patients")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Users</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-9">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Users</div>
+                    <div class="col-4">
+                        <%= link_to "Create New User", new_user_path,  class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Client</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th colspan="3">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="mx-auto text-center">
+                                <% @patients.each do |u| %>
+                                    <tr>
+                                        <td><%= u.firstname %></td>
+                                        <td><%= u.lastname %></td>
+                                        <td><%= u.user %></td>
+                                        <td><%= u.age %></td>
+                                        <td><%= u.gender %></td>
+                                        <td><%= link_to 'Show', admin_patient %></td>
+                                        <td><%= link_to 'Edit', edit_admin_patient_path(admin_patient) %></td>
+                                        <td><%= link_to 'Destroy', admin_patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    </tr>
+                                <%end%>
+                            </tbody>
+                        </table>
+                        <div class="mx-auto mt-4"><%= will_paginate @patients%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

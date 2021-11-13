@@ -1,20 +1,12 @@
 <% provide(:title,"Users")%>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%#= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
     <li class="breadcrumb-item active" aria-current="page">Users</li>
   </ol>
 </nav>
 <div class="row">
-    <div class="col-3">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= link_to "Users", admin_users_path, class:"text-decoration-none"%></li>
-                <li class="list-group-item"><%#= link_to "Categories", admin_categories_path, class:"text-decoration-none"%> dsadsadas</li>
-            </ul>
-        </div>
-    </div>
+    <%=render 'admin/shared/admin_sidebar'%>
     <div class="col-9">
         <div class="mb-4 card">
             <div class="card-header">
@@ -35,7 +27,6 @@
                                 <th>last Name</th>
                                 <th>Email</th>
                                 <th>Status</th>
-                                <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody class="mx-auto text-center">
@@ -47,7 +38,7 @@
                                         <%if u.is_admin?%>
                                             <td class="align-middle">Admin</td>
                                         <%else%>
-                                            <td class="align-middle">Physician/Normal User</td>
+                                            <td class="align-middle">Physician</td>
                                         <%end%>
                                     </tr>
                                 <%end%>

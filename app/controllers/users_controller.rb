@@ -7,16 +7,16 @@ class UsersController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Successfully Created a account."
-      redirect_to authenticated_root_path
+      redirect_to admin_users_path
     else
-      flash[:error] = "This form contains errors..."
+      flash[:error] = "This form contains errors!"
       render 'new'
     end
   end

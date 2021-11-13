@@ -6,15 +6,7 @@
 </nav>
 
 <div class="row">
-	<div class="col-3">
-		<div class="card">
-			<div class="card-header">Dashboard</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><%= link_to "Users", admin_users_path, class:"text-decoration-none"%></li>
-				<li class="list-group-item"><%#= link_to "Categories", admin_categories_path, class:"text-decoration-none"%> </li>
-			</ul>
-		</div>
-	</div>
+	<%=render 'admin/shared/admin_sidebar'%>
 	<div class="col-9">
 		<div class="mb-4 card">
 			<div class="card-header">Overview</div>
@@ -37,9 +29,9 @@
 								<div class="text-center card-body">
 									<h1 class="mb-1 card-title">
 										<i class="fas fa-journal-whills fa-lg dashboard-icon"></i>
-										<%#= @categories.count%>
+										<%#= @patients.count%>
 									</h1>
-									<h3>Categories</h3>
+									<h3>Patients</h3>
 								</div>
 							</div>
 						</div>
@@ -70,7 +62,7 @@
 										<%if user.is_admin?%>
                                             <td class="align-middle">Admin</td>
                                         <%else%>
-                                            <td class="align-middle">Physician/Normal User</td>
+                                            <td class="align-middle">Physician</td>
                                         <%end%>
 									</tr>
 								<%end%>
