@@ -1,0 +1,29 @@
+<%= form_with(model: @users, local: true) do |form| %>
+    <% if @users.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@users.errors.count, "error") %> prohibited this admin_patient from being saved:</h2>
+
+            <ul>
+                <% admin_patient.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+        <%= form.text_field :firstname, autofocus: true, autocomplete: "firstname", class:"form-control ", placeholder:"First Name" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :lastname, autofocus: true, autocomplete: "lastname", class:"form-control ", placeholder:"Last Name" %>
+    </div>
+
+     <div class="form-group">
+        <%= form.text_field :email, autofocus: true, autocomplete: "email", class:"form-control ", placeholder:"Email" %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit btn_msg, class:"btn btn-primary btn-block" %>
+        <%#= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary btn-block" %>
+    </div>
+<% end %>

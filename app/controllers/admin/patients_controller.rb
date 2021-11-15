@@ -7,6 +7,7 @@ class Admin::PatientsController < ApplicationController
 
   # GET /admin/patients/1 or /admin/patients/1.json
   def show
+    @patients = Admin::Patient.find(params[:id])
   end
 
   # GET /admin/patients/new
@@ -16,6 +17,7 @@ class Admin::PatientsController < ApplicationController
 
   # GET /admin/patients/1/edit
   def edit
+    @patients = Admin::Patient.find(params[:id])
   end
 
   # POST /admin/patients or /admin/patients.json
@@ -36,6 +38,7 @@ class Admin::PatientsController < ApplicationController
   # PATCH/PUT /admin/patients/1 or /admin/patients/1.json
   def update
     respond_to do |format|
+      @patients = Admin::Patient.find(params[:id])
       if @patients.update(admin_patient_params)
         format.html { redirect_to @patients, notice: "Patient was successfully updated." }
         format.json { render :show, status: :ok, location: @patients }
@@ -63,6 +66,6 @@ class Admin::PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_patient_params
-      params.require(:admin_patient).permit(:age, :gender, :firstname, :lastname, :email)
+      params.require(:admin_patient).permit(:age, :gender, :firstname, :lastname, :email, :pid, :external_pid, :internal_id, :related_use, :payment_type, :document_type, :date_of_birth, :race, :ethnicity)
     end
 end

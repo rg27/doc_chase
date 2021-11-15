@@ -6,8 +6,16 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 4).order(created_at: :desc)
   end
 
+  def show
+    @users = User.find(params[:id])
+  end
+  
   def new
+    @users = User.new
+  end
 
+  def edit
+    @users = User.find(params[:id])
   end
 
   def create
@@ -18,6 +26,16 @@ class UsersController < ApplicationController
     else
       flash[:error] = "This form contains errors!"
       render 'new'
+    end
+  end
+
+  def update
+    @users = User.find(params[:id])
+    if @users.update(user_params)
+      flash[:success] = "Successfully Updated Profile."
+      redirect_to admin_users_path
+    else
+      render 'edit'
     end
   end
   

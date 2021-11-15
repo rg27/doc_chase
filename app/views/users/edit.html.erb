@@ -1,0 +1,36 @@
+<% provide(:title,"Users")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Users</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-9">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Users</div>
+                    <div class="col-4">
+                        <%= link_to "Create New User", new_admin_user_path,  class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+					<div class="row">
+						<div class="mx-auto col-8">
+							<%= render "form", btn_msg: "Update User" %>
+							<div class="text-center">
+								<div class="text-center">
+									<%#= render "devise/shared/links" %>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

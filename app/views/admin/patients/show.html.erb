@@ -1,29 +1,55 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title,"Patients")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Patients</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-9">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Patients</div>
+                    <div class="col-4">
+                        <%= link_to "Create New Patient", new_admin_patient_path,  class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="">
+                        <p>
+                            <strong>Age:</strong>
+                            <%= @patients.age %>
+                        </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @patient.age %>
-</p>
+                        <p>
+                            <strong>Gender:</strong>
+                            <%= @patients.gender %>
+                        </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @patients.gender %>
-</p>
+                        <p>
+                            <strong>Firstname:</strong>
+                            <%= @patients.firstname %>
+                        </p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @patients.firstname %>
-</p>
+                        <p>
+                            <strong>Lastname:</strong>
+                            <%= @patients.lastname %>
+                        </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @patients.lastname %>
-</p>
+                        <p>
+                            <strong>Email:</strong>
+                            <%= @patients.email %>
+                        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @patients.email %>
-</p>
-
-<%= link_to 'Edit', edit_admin_patient_path(@admin_patient) %> |
-<%= link_to 'Back', admin_patients_path %>
+                        <%= link_to 'Edit', edit_admin_patient_path(@patients) , class:"btn btn-primary"%>
+                        <%#= link_to 'Back', admin_patients_path %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

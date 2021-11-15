@@ -1,42 +1,74 @@
 <%= form_with(model: @patients, local: true) do |form| %>
-  <% if @patients.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patients.errors.count, "error") %> prohibited this admin_patient from being saved:</h2>
+    <% if @patients.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@patients.errors.count, "error") %> prohibited this admin_patient from being saved:</h2>
 
-      <ul>
-      <% admin_patient.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+                <% admin_patient.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+        <%= form.text_field :firstname, autofocus: true, autocomplete: "firstname", class:"form-control ", placeholder:"First Name" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
+    <div class="form-group">
+        <%= form.text_field :lastname, autofocus: true, autocomplete: "lastname", class:"form-control ", placeholder:"Last Name" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
+     <div class="form-group">
+        <%= form.text_field :email, autofocus: true, autocomplete: "email", class:"form-control ", placeholder:"Email" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
-  </div>
+    <div class="form-group">
+        <%= form.number_field :age, autofocus: true, autocomplete: "age", class:"form-control ", placeholder:"Age" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
-  </div>
+    <div class="form-group">
+        <%= form.text_field :gender, autofocus: true, autocomplete: "gender", class:"form-control ", placeholder:"Gender" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <div class="form-group">
+        <%= form.text_field :pid, autofocus: true, autocomplete: "pid", class:"form-control ", placeholder:"Pid" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-group">
+        <%= form.text_field :external_pid, autofocus: true, autocomplete: "external_pid", class:"form-control ", placeholder:"External PID" %>
+    </div>
+
+
+    <div class="form-group">
+        <%= form.text_field :internal_id, autofocus: true, autocomplete: "internal_id", class:"form-control ", placeholder:"Internal ID" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :related_use, autofocus: true, autocomplete: "related_use", class:"form-control ", placeholder:"Relates Use" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :payment_type, autofocus: true, autocomplete: "payment_type", class:"form-control ", placeholder:"Payment Type" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :document_type, autofocus: true, autocomplete: "document_type", class:"form-control ", placeholder:"Document Type" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class:"form-control ", placeholder:"Date of Birth" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :race, autofocus: true, autocomplete: "race", class:"form-control ", placeholder:"Race" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.text_field :ethnicity, autofocus: true, autocomplete: "ethnicity", class:"form-control ", placeholder:"Ethnicity" %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit btn_msg, class:"btn btn-primary btn-block" %>
+        <%#= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary btn-block" %>
+    </div>
 <% end %>

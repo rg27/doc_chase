@@ -1,6 +1,36 @@
-<h1>Editing Admin Patient</h1>
-
-<%= render 'form', admin_patient: @admin_patient %>
-
-<%= link_to 'Show', @admin_patient %> |
-<%= link_to 'Back', admin_patients_path %>
+<% provide(:title,"Patients")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Patients</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-9">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Patients</div>
+                    <div class="col-4">
+                        <%= link_to "Create New Patient", new_admin_patient_path,  class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+					<div class="row">
+						<div class="mx-auto col-8">
+							<%= render "form", btn_msg: "Update Patient" %>
+							<div class="text-center">
+								<div class="text-center">
+									<%#= render "devise/shared/links" %>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
