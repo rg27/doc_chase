@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    resources :orders
+  end
+  namespace :admin do
     resources :patients
   end
 

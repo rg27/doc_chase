@@ -1,0 +1,94 @@
+<%= form_with(model: @orders, local: true) do |form| %>
+    <% if @orders.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@orders.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+            <ul>
+                <% @orders.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <%= form.text_field :accession_id, autofocus: true, autocomplete: "accession_id", class:"form-control ", placeholder:"Accession ID" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :external_id, autofocus: true, autocomplete: "external_id", class:"form-control ", placeholder:"External ID" %>
+            </div>
+
+            <div class="form-group">
+                <div class="controls">
+                    <%#=  collection_select(:patient, :user_id, User.all, :id, :lastname)%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :physician, autofocus: true, autocomplete: "physician", class:"form-control ", placeholder:"Physician" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.number_field :kit_no, autofocus: true, autocomplete: "kit_no", class:"form-control ", placeholder:"Kit No." %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :kit_type, autofocus: true, autocomplete: "kit_type", class:"form-control ", placeholder:"Kit Type" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :results_needed_by, autofocus: true, autocomplete: "results_needed_by", class:"form-control ", placeholder:"Results Needed By", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
+                <%= form.date_field :requisition_date, autofocus: true, autocomplete: "requisition_date", class:"form-control ", placeholder:"Requisition Date", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :end_date, autofocus: true, autocomplete: "end_date", class:"form-control ", placeholder:"End Date", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :priority, autofocus: true, autocomplete: "priority", class:"form-control ", placeholder:"Priority" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.number_field :turn_around_time, autofocus: true, autocomplete: "turn_around_time", class:"form-control ", placeholder:"Turn Around Time" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :medication, autofocus: true, autocomplete: "medication", class:"form-control", placeholder:"Medication"%>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :allergies, autofocus: true, autocomplete: "allergies", class:"form-control ", placeholder:"Allergies" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :specimen_collect_date, autofocus: true, autocomplete: "specimen_collect_date", class:"form-control ", placeholder:"Specimen Collect Date", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :specimen_receive_date, autofocus: true, autocomplete: "specimen_receive_date", class:"form-control ", placeholder:"Specimen Receive Date", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :collection_method, autofocus: true, autocomplete: "collection_method", class:"form-control ", placeholder:"Collection Method" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :travel_date, autofocus: true, autocomplete: "travel_date", class:"form-control ", placeholder:"Travel Date", type:"text", onfocus:"(this.type='date')", id:"date"  %>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <%= form.submit btn_msg, class:"btn btn-primary btn-block" %>
+        <%#= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary btn-block" %>
+    </div>
+<% end %>

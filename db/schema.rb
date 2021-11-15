@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_081511) do
+ActiveRecord::Schema.define(version: 2021_11_15_202333) do
+
+  create_table "admin_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "accession_id"
+    t.string "external_id"
+    t.string "physician"
+    t.integer "kit_no"
+    t.string "kit_type"
+    t.date "results_needed_by"
+    t.date "requisition_date"
+    t.date "end_date"
+    t.string "priority"
+    t.integer "turn_around_time"
+    t.string "medication"
+    t.string "allergies"
+    t.date "specimen_collect_date"
+    t.date "specimen_receive_date"
+    t.string "collection_method"
+    t.date "travel_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admin_patients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "age"
@@ -29,6 +50,17 @@ ActiveRecord::Schema.define(version: 2021_11_15_081511) do
     t.date "date_of_birth"
     t.string "race"
     t.string "ethnicity"
+    t.string "street"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.integer "phone"
+    t.integer "mobile"
+    t.string "county"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_admin_patients_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,4 +78,5 @@ ActiveRecord::Schema.define(version: 2021_11_15_081511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "admin_patients", "users"
 end

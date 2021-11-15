@@ -1,72 +1,136 @@
 <%= form_with(model: @patients, local: true) do |form| %>
     <% if @patients.errors.any? %>
         <div id="error_explanation">
-            <h2><%= pluralize(@patients.errors.count, "error") %> prohibited this admin_patient from being saved:</h2>
+            <h2><%= pluralize(@patients.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
             <ul>
-                <% admin_patient.errors.full_messages.each do |message| %>
+                <% @patients.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
         </div>
     <% end %>
-    <div class="form-group">
-        <%= form.text_field :firstname, autofocus: true, autocomplete: "firstname", class:"form-control ", placeholder:"First Name" %>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <%= form.text_field :firstname, autofocus: true, autocomplete: "firstname", class:"form-control ", placeholder:"First Name" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :lastname, autofocus: true, autocomplete: "lastname", class:"form-control ", placeholder:"Last Name" %>
+            </div>
+
+            <div class="form-group">
+                <div class="controls">
+                    <%#=  collection_select(:patient, :user_id, User.all, :id, :lastname)%>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :email, autofocus: true, autocomplete: "email", class:"form-control ", placeholder:"Email" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.number_field :age, autofocus: true, autocomplete: "age", class:"form-control ", placeholder:"Age" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :gender, autofocus: true, autocomplete: "gender", class:"form-control ", placeholder:"Gender" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :pid, autofocus: true, autocomplete: "pid", class:"form-control ", placeholder:"Pid" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :external_pid, autofocus: true, autocomplete: "external_pid", class:"form-control ", placeholder:"External PID" %>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
+                <%= form.text_field :internal_id, autofocus: true, autocomplete: "internal_id", class:"form-control ", placeholder:"Internal ID" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :related_use, autofocus: true, autocomplete: "related_use", class:"form-control ", placeholder:"Related Use" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :payment_type, autofocus: true, autocomplete: "payment_type", class:"form-control ", placeholder:"Payment Type" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :document_type, autofocus: true, autocomplete: "document_type", class:"form-control ", placeholder:"Document Type" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class:"form-control", placeholder:"Date of Birth", type:"text", onfocus:"(this.type='date')", id:"date" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :race, autofocus: true, autocomplete: "race", class:"form-control ", placeholder:"Race" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.text_field :ethnicity, autofocus: true, autocomplete: "ethnicity", class:"form-control ", placeholder:"Ethnicity" %>
+            </div>
+        </div>
     </div>
 
-    <div class="form-group">
-        <%= form.text_field :lastname, autofocus: true, autocomplete: "lastname", class:"form-control ", placeholder:"Last Name" %>
+    <div class="card bg-white mb-3 mt-5" style="max-width: 54rem;">
+        <div class="card-header">General Information</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <%= form.text_field :street, autofocus: true, autocomplete: "street", class:"form-control ", placeholder:"Street" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :street2, autofocus: true, autocomplete: "street2", class:"form-control ", placeholder:"Street 2" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :city, autofocus: true, autocomplete: "city", class:"form-control ", placeholder:"City" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :state, autofocus: true, autocomplete: "state", class:"form-control ", placeholder:"State" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :zip, autofocus: true, autocomplete: "zip", class:"form-control ", placeholder:"Zip" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :country, autofocus: true, autocomplete: "country", class:"form-control ", placeholder:"Country" %>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <%= form.text_field :ethnicity, autofocus: true, autocomplete: "ethnicity", class:"form-control ", placeholder:"Ethnicity" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.number_field :phone, autofocus: true, autocomplete: "phone", class:"form-control ", placeholder:"Phone" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.number_field :mobile, autofocus: true, autocomplete: "mobile", class:"form-control ", placeholder:"Mobile" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.text_field :county, autofocus: true, autocomplete: "county", class:"form-control ", placeholder:"County" %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-     <div class="form-group">
-        <%= form.text_field :email, autofocus: true, autocomplete: "email", class:"form-control ", placeholder:"Email" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.number_field :age, autofocus: true, autocomplete: "age", class:"form-control ", placeholder:"Age" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :gender, autofocus: true, autocomplete: "gender", class:"form-control ", placeholder:"Gender" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :pid, autofocus: true, autocomplete: "pid", class:"form-control ", placeholder:"Pid" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :external_pid, autofocus: true, autocomplete: "external_pid", class:"form-control ", placeholder:"External PID" %>
-    </div>
-
-
-    <div class="form-group">
-        <%= form.text_field :internal_id, autofocus: true, autocomplete: "internal_id", class:"form-control ", placeholder:"Internal ID" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :related_use, autofocus: true, autocomplete: "related_use", class:"form-control ", placeholder:"Relates Use" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :payment_type, autofocus: true, autocomplete: "payment_type", class:"form-control ", placeholder:"Payment Type" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :document_type, autofocus: true, autocomplete: "document_type", class:"form-control ", placeholder:"Document Type" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class:"form-control ", placeholder:"Date of Birth" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :race, autofocus: true, autocomplete: "race", class:"form-control ", placeholder:"Race" %>
-    </div>
-
-    <div class="form-group">
-        <%= form.text_field :ethnicity, autofocus: true, autocomplete: "ethnicity", class:"form-control ", placeholder:"Ethnicity" %>
-    </div>
-
+   
     <div class="actions">
         <%= form.submit btn_msg, class:"btn btn-primary btn-block" %>
         <%#= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary btn-block" %>

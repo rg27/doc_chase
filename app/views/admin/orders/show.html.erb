@@ -1,0 +1,55 @@
+<% provide(:title,"Orders")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Orders</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-9">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Orders</div>
+                    <div class="col-4">
+                        <%= link_to "Create New Patient", new_admin_patient_path,  class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="">
+                        <p>
+                            <strong>Age:</strong>
+                            <%= @orders.accession_id %>
+                        </p>
+
+                        <p>
+                            <strong>Gender:</strong>
+                            <%= @orders.physician %>
+                        </p>
+
+                        <p>
+                            <strong>Firstname:</strong>
+                            <%= @orders.kit_type %>
+                        </p>
+
+                        <p>
+                            <strong>Lastname:</strong>
+                            <%= @orders.results_needed_by %>
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <%= @orders.requisition_date %>
+                        </p>
+
+                        <%= link_to 'Edit', edit_admin_order_path(@orders) , class:"btn btn-primary"%>
+                        <%#= link_to 'Back', admin_patients_path %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

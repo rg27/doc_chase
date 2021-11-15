@@ -1,0 +1,59 @@
+<% provide(:title,"Orders")%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Dashboard", admin_home_path, class:"text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Orders</li>
+  </ol>
+</nav>
+<div class="row">
+    <%=render 'admin/shared/admin_sidebar'%>
+    <div class="col-10">
+        <div class="mb-4 card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 d-flex align-items-center">Orders</div>
+                    <div class="col-4">
+                        <%= link_to "Create New Order", new_admin_order_path, class:"btn btn-primary btn-block ml-auto" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>Accession ID</th>
+                                    <th>Patient</th>
+                                    <th>Physician</th>
+                                    <th>Client</th>
+                                    <th>Kit Type</th>
+                                    <th>Results Needed By</th>
+                                    <th>Requisition Date</th>
+                                    <th colspan="3">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="mx-auto text-center">
+                                <% @orders.each do |o| %>
+                                    <tr>
+                                        <td><%= o.accession_id %></td>
+                                        <td><%#= o.lastname %></td>
+                                        <td><%= o.physician %></td>
+                                        <td><%#= o.age %></td>
+                                        <td><%= o.kit_type %></td>
+                                        <td><%= o.results_needed_by %></td>
+                                        <td><%= o.requisition_date %></td>
+                                        <td><%= link_to 'Show', admin_order_path(o.id), class:"my-2 btn btn-outline-info btn-sm" %></td>
+                                        <td><%= link_to 'Edit', edit_admin_order_path(o.id), class:"my-2 btn btn-outline-primary btn-sm"%></td>
+                                        <td><%= link_to 'Destroy', admin_order_path(o.id), class:"my-2 btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    </tr>
+                                <%end%>
+                            </tbody>
+                        </table>
+                        <div class="mx-auto mt-4"><%= will_paginate @users%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

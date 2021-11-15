@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accession_id: MyString
+  external_id: MyString
+  physician: MyString
+  kit_no: 1
+  kit_type: MyString
+  results_needed_by: 2021-11-15
+  requisition_date: 2021-11-15
+  end_date: 2021-11-15
+  priority: MyString
+  turn_around_time: 1
+  medication: MyString
+  allergies: MyString
+  specimen_collect_date: 2021-11-15
+  specimen_receive_date: 2021-11-15
+  collection_method: MyString
+  travel_date: 2021-11-15
+
+two:
+  accession_id: MyString
+  external_id: MyString
+  physician: MyString
+  kit_no: 1
+  kit_type: MyString
+  results_needed_by: 2021-11-15
+  requisition_date: 2021-11-15
+  end_date: 2021-11-15
+  priority: MyString
+  turn_around_time: 1
+  medication: MyString
+  allergies: MyString
+  specimen_collect_date: 2021-11-15
+  specimen_receive_date: 2021-11-15
+  collection_method: MyString
+  travel_date: 2021-11-15
